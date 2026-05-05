@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background: linear-gradient(135deg, #1B4F8A, #0C447C);
+  font-family: Arial, sans-serif;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 40px 20px;
+}
+
+.container {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+  height: fit-content;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255,255,255,0.15);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.input-row input::placeholder {
+  color: rgba(255,255,255,0.6);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-row input:focus {
+  border-color: white;
+}
+
+.input-row button {
+  padding: 10px 20px;
+  background: white;
+  color: #1B4F8A;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.input-row button:hover {
+  background: #f0f0f0;
+}
+
+.weather-card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.weather-card h2 {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.temp {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.desc {
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.details div {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.details span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+.details strong {
+  font-size: 15px;
+  color: white;
 }
