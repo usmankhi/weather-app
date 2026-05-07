@@ -40,8 +40,8 @@ body {
 
 .search-row input {
   flex: 1;
-  background: rgba(255,255,255,0.3);
-  border: 1.5px solid rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   padding: 10px 14px;
   color: #fff;
@@ -50,11 +50,11 @@ body {
 }
 
 .search-row input::placeholder {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .search-row input:focus {
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .search-row button {
@@ -65,18 +65,37 @@ body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: #6c63ff;
+  transition: background 0.2s, color 0.3s;
 }
 
 .search-row button:hover {
   background: #f0f0f0;
 }
 
+/* FIX 1: Loading dots — now properly used in JSX */
 .loading {
   text-align: center;
-  color: #888;
-  padding: 1rem;
-  font-size: 14px;
+  padding: 1.2rem;
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+  font-size: 2rem;
+  color: #aaa;
+}
+
+.loading-dots span {
+  animation: bounce 1.2s infinite;
+  line-height: 1;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-8px); opacity: 1; }
 }
 
 .error {
@@ -94,7 +113,7 @@ body {
   border-radius: 20px;
   padding: 1.5rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
   text-align: center;
 }
 
@@ -121,8 +140,21 @@ body {
   font-size: 14px;
   color: #888;
   text-transform: capitalize;
+  margin-bottom: 0.6rem;
+}
+
+/* FIX 5: minmax now actually used in JSX */
+.minmax {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 600;
   margin-bottom: 1.2rem;
 }
+
+.minmax span:first-child { color: #ff6b35; }
+.minmax span:last-child  { color: #45aaf2; }
 
 .details-grid {
   display: grid;
@@ -152,11 +184,12 @@ body {
   color: #333;
 }
 
+/* Forecast */
 .forecast {
   background: #fff;
   border-radius: 20px;
   padding: 1.2rem;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
 }
 
 .forecast-title {
@@ -171,11 +204,17 @@ body {
 .forecast-list {
   display: flex;
   gap: 8px;
-  justify-content: space-between;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.forecast-list::-webkit-scrollbar {
+  display: none;
 }
 
 .forecast-item {
-  flex: 1;
+  flex: 0 0 72px;
   background: #f5f7ff;
   border-radius: 12px;
   padding: 10px 6px;
